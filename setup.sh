@@ -37,9 +37,8 @@ echo -e "${GREEN}=== Arch Dotfiles Complete Setup (Curl-Friendly) ===${NC}"
 echo "Repo URL: $REPO_URL"
 echo "This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles."
 echo "Backup your ~/.config first if needed (script will auto-backup)."
-read -p "Continue? (y/N): " -n 1 -r
-echo < /dev/tty
-
+read -p "Continue? (y/N): " -n 1 < /dev/tty
+echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     echo -e "${YELLOW}Aborted.${NC}"
     exit 1
