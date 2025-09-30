@@ -9,9 +9,9 @@ Run the complete setup script via curl on a fresh Arch install (e.g., after `arc
 
 ### One-Liner Installation (Requires Curl)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yourusername/dotfiles/main/setup-complete.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh | bash
 ```
-- **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually: `curl -O https://raw.githubusercontent.com/.../setup-complete.sh; chmod +x setup-complete.sh; ./setup-complete.sh`.
+- **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually: `curl -O https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh; chmod +x setup.sh; ./setup.sh`.
 - **What It Does**:
   1. Updates system (`sudo pacman -Syu`).
   2. Installs prerequisites (git, stow, base-devel).
@@ -24,7 +24,7 @@ curl -fsSL https://raw.githubusercontent.com/yourusername/dotfiles/main/setup-co
 ### If the repo is already cloned:
 ```bash
 cd ~/dotfiles
-./setup-complete.sh
+./setup.sh
 ```
 
 ## Packages Installed
@@ -78,7 +78,7 @@ stow -R -v */  # Restow changes
 ```
 dotfiles/
 ├── README.md                 # This file
-├── setup-complete.sh         # Full setup script (curlable)
+├── setup.sh         # Full setup script (curlable)
 ├── niri/                     # Niri config (config.kdl, themes)
 ├── fish/                     # Fish shell (config.fish)
 ├── nvim/                     # Neovim (init.lua)
@@ -86,7 +86,7 @@ dotfiles/
 ├── wezterm/                  # Wezterm (wezterm.lua)
 ├── swaync/                   # Notifications
 ├── fuzzel/                   # Launcher
-├── wlsunset/                 # Night light
+├── wlsunset/                 # Night light    
 ├── ...                       # Other: alacritty, kitty, etc.
 └── LICENSE
 ```
