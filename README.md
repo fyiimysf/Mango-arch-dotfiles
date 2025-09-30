@@ -11,7 +11,12 @@ Run the complete setup script via curl on a fresh Arch install (e.g., after `arc
 ```bash
 curl -fsSL https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh | bash
 ```
-- **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually: `curl -O https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh; chmod +x setup.sh; ./setup.sh`.
+- **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually:
+```bash
+curl -O https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh
+chmod +x setup.sh
+./setup.sh
+```
 - **What It Does**:
   1. Updates system (`sudo pacman -Syu`).
   2. Installs prerequisites (git, stow, base-devel).
