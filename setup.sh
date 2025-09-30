@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# setup-complete.sh
+# setup.sh
 # Comprehensive setup script for Arch Linux dotfiles, runnable via curl on a fresh system.
 # 1. Updates system and installs prerequisites (including git).
 # 2. Clones the dotfiles repo to ~/dotfiles if not already present.
@@ -12,7 +12,6 @@
 # To run on a new/fresh Arch Linux system via curl (one-liner):
 # curl -fsSL https://raw.githubusercontent.com/yourusername/dotfiles/main/setup-complete.sh | bash
 # 
-# Replace 'yourusername' with the actual GitHub username/repo owner.
 # Assumes: Fresh Arch Linux or derivative (e.g., after archinstall). Internet and sudo access required.
 # WARNINGS:
 # - This is a destructive setup: Backs up ~/.config but overwrites with symlinks.
@@ -24,7 +23,7 @@
 set -e  # Exit on error
 
 # Configuration
-REPO_URL="https://github.com/yourusername/dotfiles.git"  # Update with actual repo URL
+REPO_URL="https://github.com/fyiimysf/Niri-arch-dotfiles.git"  # Update with actual repo URL
 DOTFILES_DIR="$HOME/dotfiles"
 
 # Colors for output
