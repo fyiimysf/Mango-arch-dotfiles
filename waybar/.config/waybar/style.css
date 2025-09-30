@@ -1,0 +1,211 @@
+* {
+    border: none;
+    font-family: Font Awesome, Roboto, Arial, sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+window {
+	font-weight: bold;
+}
+window#waybar {
+    background: rgba(0, 0, 0, 0);
+}
+/*-----module groups----*/
+.modules-right {
+	background-color: rgba(0,43,51,0);
+    margin: 2px 10px 0 0;
+}
+.modules-center {
+    margin: 0px 0 0 0;
+	background-color: rgba(0,43,51,0);
+}
+.modules-left {
+	background-color: rgba(0,43,51,0);
+    margin: 2px 0 0 5px;
+}
+/*-----modules indv----*/
+#workspaces button {
+	background-color: transparent;
+    padding: 1px 8px;
+}
+#workspaces button:hover {
+	background-color: rgba(0,119,179,0.6);
+    box-shadow: inherit;
+}
+
+#workspaces button.focused {
+    background-color: rgba(0,43,51,0.6);
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#custom-power,
+#custom-menu,
+#idle_inhibitor {
+    padding: 0 10px;
+}
+#mode {
+    color: #cc3436;
+    font-weight: bold;
+}
+#custom-power {
+    background-color: rgba(0,119,179,0.6);
+    border-radius: 100px;
+    margin: 5px 5px;
+    padding: 1px 4px 1px 6px;
+}
+#custom-notification {
+    background-color: rgba(0,119,179,0.6);
+    border-radius: 100px;
+    margin: 5px 5px;
+    padding: 1px 6px 1px 12px;
+}
+
+/*-----Indicators----*/
+#idle_inhibitor.activated {
+    color: #2dcc36;
+}
+#pulseaudio.muted {
+    color: #cc3436;
+}
+#battery.charging {
+    color: #2dcc36;
+}
+#battery.warning:not(.charging) {
+	color: #e6e600;
+}
+#battery.critical:not(.charging) {
+    color: #cc3436;
+}
+#temperature.critical {
+    color: #cc3436;
+}
+#custom-media {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    color: black;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#custom-warp {
+padding: 7px;
+/* margin: 1 5px; */
+margin-left: 3px;
+margin-right: 3px;
+margin-top: 2px;
+margin-bottom: 2px;
+border-radius: 25px;
+}
+
+/* Styles based on status classes from the script */
+.warp-connected {
+    background-color: rgba(170, 255, 127, 0.4); /* Light green background */
+}
+
+.warp-disconnected {
+    background-color: rgba(255, 85, 85, 0.3); /* Light red background */
+}
+
+.warp-unknown {
+    background-color: rgba(200, 200, 200, 0.2); /* Light grey background */
+}
+#custom-tuned {
+margin-left: 4px;
+margin-right: 4px;
+margin-top: 2px;
+margin-bottom: 2px;
+padding: 0 10px;
+border-radius: 15px;
+transition: all 0.3s ease;
+}
+
+/* Profile-specific styles */
+.accelerator-performance {
+background-color: rgba(255, 85, 85, 0.2);
+border-top: 4px solid #ff5555;
+}
+
+.balanced {
+background-color: rgba(189, 147, 249, 0.3);
+border: 0px solid #bd93f9;
+}
+
+.powersave {
+background-color: rgba(80, 250, 123, 0.2);
+border-bottom: 4px solid #50fa7b;
+}
+
+#custom-tuned:hover {
+background-color: rgba(98, 114, 164, 0.9);
+}
+
+/* General taskbar styling */
+#taskbar {
+background-color: transparent;
+border-radius: 6px;
+}
+
+/* Base style for all taskbar buttons */
+#taskbar button {
+background-color: transparent;
+color: #cdd6f4;
+opacity: 0.3;
+border: none;
+margin: 2px;
+padding: 4px 8px;
+border-radius: 40px;
+transition: background-color 0.2s ease;
+}
+
+/* Hover effect */
+#taskbar button:hover {
+background-color: #0a242d;
+border: solid;
+opacity:1;
+}
+
+/* Active window button */
+#taskbar button.active {
+/*background-color: #0a517a;
+color: #0a517a;*/
+opacity: 1;
+font-weight: bold;
+}
+
+/* Minimized window button */
+#taskbar button.minimized {
+opacity: 0.5;
+font-style: italic;
+}
+
+/* Maximized window button */
+#taskbar button.maximized {
+border: 1px solid #f9e2af;
+}
+
+/* Fullscreen window button */
+#taskbar button.fullscreen {
+background-color: #f38ba8;
+color: #1e1e2e;
+}
+
+
+/*-----Colors----*/
+/*
+ *rgba(0,85,102,1),#005566 --> Indigo(dye)
+ *rgba(0,43,51,1),#002B33 --> Dark Green 
+ *rgba(0,153,153,1),#009999 --> Persian Green 
+ *
+ */

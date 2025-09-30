@@ -1,0 +1,12 @@
+[Default Applications]
+application/x-terminal-emulator=foot.desktop
+text/plain=org.xfce.mousepad.desktop
+text/x-csrc=org.gnome.TextEditor.desktop
+x-scheme-handler/terminal=foot.desktop
+audio/mpeg=org.gnome.Decibels.desktop
+image/png=feh.desktop
+
+[Added Associations]
+text/x-csrc=org.gnome.TextEditor.desktop
+audio/mpeg=org.gnome.Decibels.desktop;
+image/png=feh.desktop;

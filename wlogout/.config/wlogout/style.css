@@ -1,0 +1,55 @@
+* {
+	background-image: none;
+	transition: 0;
+}
+window {
+	background-color: rgba(0, 0, 0, 0.8);
+	background-image: url('./noise.png');
+}
+button {
+    color: #d4bff9;
+	background-color: rgba(252, 251, 254, 0.02);
+	border: 0 solid #d4bff9;
+	border-radius: 3rem;
+	margin: 0.8rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	font-family: Roboto;
+	font-size: 1.7rem;
+}
+
+button:focus, button:active, button:hover {
+	background-color: rgba(237, 229, 252, 0.3);
+	outline-style: none;
+	
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}
+
+#windows {
+	background-image: image(url("/home/jfifi/.config/wlogout/icons/icons8-windows-11-500.png"),url("/home/jfifi/.config/wlogout/icons/icons8-windows-11-500.png"));
+}

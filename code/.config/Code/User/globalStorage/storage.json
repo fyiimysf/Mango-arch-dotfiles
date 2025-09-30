@@ -1,0 +1,88 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "318a89d6ff4f21f82f2b8bc77ec9ad43a7a2e1c1704fe5e0352f3c0e38b1d1ee",
+    "telemetry.devDeviceId": "6d5b986a-3607-46cf-9537-3b3c3018d69a",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/jfifi/Documents/istriku/sunset-video-site"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 42,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/jfifi/Downloads/terminal-birthday": "__default__profile__",
+            "file:///home/jfifi/Documents/istriku/dusk-view-page-main": "__default__profile__",
+            "file:///home/jfifi/Documents/istriku/sunset-video-site": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/jfifi/Documents/istriku/sunset-video-site",
+            "backupPath": "/home/jfifi/.config/Code/Backups/988a6cead7b1272f662ce1bf2bf9afcb",
+            "uiState": {
+                "mode": 1,
+                "x": 0,
+                "y": 0,
+                "width": 1898,
+                "height": 1026,
+                "zoomLevel": 1
+            }
+        },
+        "openedWindows": []
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1f1f1f",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#cccccc",
+            "background": "#1f1f1f",
+            "editorBackground": "#1f1f1f",
+            "titleBarBackground": "#181818",
+            "titleBarBorder": "#2b2b2b",
+            "activityBarBackground": "#181818",
+            "activityBarBorder": "#2b2b2b",
+            "sideBarBackground": "#181818",
+            "sideBarBorder": "#2b2b2b",
+            "statusBarBackground": "#181818",
+            "statusBarBorder": "#2b2b2b",
+            "statusBarNoFolderBackground": "#1f1f1f"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 236,
+            "auxiliaryBarWidth": 236,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 236,
+            "auxiliaryBarWidth": 236,
+            "workspaces": {
+                "c348a0bf599f520ae50051b44b0ca963": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "017e2d2c87ef8b9e9cf7cdd2d25c1399": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "efb986c0d92fef3ceedd5b99017ccc1b": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+export default function Home() {
+
+  return (
+    <div className="justify-around flex-col items-stretch flex w-screen h-full">
+
+      {/* Header */}
+      
+      <div className="fixed -z-10 size-full bg-gradient-to-br from-slate-900 via-orange-950 to-rose-900 opacity-60"></div>
+        <header className="absolute top-5 w-full">
+          <div className="container mx-auto px-4 text-center font-serif">
+            <h1 className="text-5xl sm:text-7xl text-primary mb-4 text-balance font-light">Untukmu</h1>
+            <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Istriku manis
+            </p>
+          </div>
+        </header>
+
+        <main className="size-[92%] sm:size-108 mx-auto pt-50 sm:pt-0 " >
+          <div className="relative group">
+            {/* Gradient background behind video */}
+
+            <div className="absolute -inset-4 bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-50 transition-opacity duration-500"></div>
+            {/* Video container */}
+            <div className="relative bg-card rounded-xl shadow-2xl overflow-hidden border border-primary/30">
+              <iframe
+                className="aspect-square"
+                src="https://rumble.com/embed/v6wmnpq/?autoPlay=0"
+                // src="https://drive.google.com/file/d/1fRmbNlmEsJKzqleAuC-WYOkG8wLpIgbW/preview"
+                // src="https://d-s.io/e/gxix6d1gynmx"
+                allowFullScreen
+                seamless
+                sandbox="allow-same-origin allow-scripts" 
+                title="untuk istriku"
+              />
+              
+
+
+              {/* <iframe
+                className="size-54 sm:size-108"
+                allowFullScreen={true}
+                seamless
+                title="untuk istriku"
+                /> */}
+            </div>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <footer className="bottom-3 absolute w-full">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-muted-foreground text-sm font-mono">Rendered with love</p>
+          </div>
+        </footer>
+      </div>
+    
+  )
+}

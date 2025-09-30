@@ -1,0 +1,221 @@
+
+{
+    "layer": "top",
+
+    "modules-left":
+    [
+    "custom/notification",
+    "custom/warp",
+    "clock",
+    "custom/weather",
+    "niri/workspaces",
+    "mpris"
+    ],
+
+    "modules-center":
+    [
+    "wlr/taskbar"
+    // "idle_inhibitor"
+    ],
+
+    "modules-right":
+    [
+    "tray",
+    "pulseaudio",
+    "battery",
+    "custom/tuned",
+    "custom/power"
+    ],
+     "custom/notification": {
+            "tooltip": false,
+            "format": " " ,
+            "on-click": "swaync-client -t -sw",
+            "escape": true
+     },
+
+     "niri/workspaces": {
+	"format": "{icon} ",
+	"format-icons": {
+		// Icons by state
+		"default": "",
+		"active": ""
+	}
+},
+
+    "wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 20,
+	"tooltip-format": "{title}",
+	"on-click": "activate",
+	"on-click-middle": "close",
+	"ignore-list": [
+
+	],
+	"app_ids-mapping": {
+		"firefoxdeveloperedition": "firefox-developer-edition"
+	},
+	"rewrite": {
+		"Firefox Web Browser": "Firefox",
+		"Foot": "Terminal"
+	}
+},
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "format-disconnected": "",
+        "max-length": 50,
+        "on-click": "kitty -e 'nmtui'"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10,
+        "interval": 500,
+        "exec": "blueman-applet & nm-applet"
+    },
+    "clock": {
+    	"format": "{:%I:%M %p} ",
+        "tooltip-format": "<big>{:%d %B %y}</big>\n<tt><small>{calendar}</small></tt>",
+        // "format-alt": "{:%Y-%m-%d}"
+		"on-click": "gnome-calendar"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "0% {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+	"custom/power": {
+		"format": " ",
+		"on-click": "wlogout"
+	},
+	"custom/warp":{
+        "format": "{}",// Format is handled in the script output
+        "exec": "bash ~/.config/waybar/get_warp.sh",
+        "on-click": "bash ~/.config/waybar/warp_toggle.sh",
+        "interval": 1, // Update status every 5 seconds (optional)
+        "return-type": "json",
+        "tooltip": true
+    }
+	,
+    "custom/scratchpad-indicator": {
+        "format-text": "{}hi",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    },
+
+    "mpris": {
+	"format": "{player_icon} {title}   {position} / {length}",
+	"format-paused": "{status_icon} <i>{title}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	"interval" : 1,
+	// "ignored-players": ["firefox"]
+    },
+	
+    "custom/media": {
+        "format": "{text} {icon}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": " ",
+            "default": " "
+        },
+	"interval" : 30,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
+    },
+
+    "custom/weather": {
+    	"format": "{} C°",
+    	"tooltip": true,
+    	"interval": 3600,
+    	"exec": "wttrbar --location Lahore",
+    	"return-type": "json"
+    },
+
+    "custom/ppd": {
+  	"format": "{icon} {text}",
+  	"interval": 1,
+  	"tooltip-format": "Power profile: {text}",
+  	"tooltip": true,
+  	"exec": "tuned-adm active | cut -f2 -d':'",
+  	"return-type":"text",
+  	"format-icons": {
+    		"default": "",
+    		"accelerator-performance": "",
+    		"balanced": "",
+    		"powersave": ""
+  	}
+	},
+
+"custom/tuned": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/tuned.sh",
+    "on-click": "~/.config/waybar/tuned.sh --click",
+    "interval": 1,
+    "signal":1
+},
+
+"custom/clipboard": {
+  "format": "🄯",
+  "interval": "once",
+  "return-type": "json",
+  "on-click": "swaymsg -q exec '$clipboard'; pkill -RTMIN+9 waybar",
+  "on-click-right": "swaymsg -q exec '$clipboard-del'; pkill -RTMIN+9 waybar",
+  "on-click-middle": "swaymsg -q exec '$clipboard-del-all'",
+  "exec": "printf '{\"tooltip\":\"%s\"}' $(cliphist list | wc -l)",
+  "exec-if": "[ -x \"$(command -v cliphist)\" ] && [ $(cliphist list | wc -l) -gt 0 ]",
+  "signal": 9
+},
+
+    "battery": {
+            "interval":2,
+            "states": {
+                "good": 75,
+                "warning": 40,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon} {power}W",
+            "format-charging": "{capacity}% 󰂄 ",
+            "format-plugged": "{capacity}% 󰂄  ",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "󰁻",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+            ],
+        },
+}
+
