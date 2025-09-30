@@ -3,6 +3,8 @@
 *.jsx linguist-detectable=false
 *.js linguist-detectable=false
 *.tsx linguist-detectable=false
+*.mjs linguist-detectable=false
+*.css linguist-detectable=false
 *.py linguist-detectable=false
 *.kdl linguist-detectable=false
 *.toml linguist-detectable=false
