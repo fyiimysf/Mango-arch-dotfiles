@@ -32,9 +32,9 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}=== Arch Dotfiles Complete Setup (Curl-Friendly) ===${NC}"
+echo -e "${GREEN}=== NiriWM Arch Dotfiles by fyiimysf ===${NC}"
 echo "Repo URL: $REPO_URL"
-echo "This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles."
+echo "${RED}This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles.${NC}"
 echo "Backup your ~/.config first if needed (script will auto-backup)."
 read -p "Continue? (y/N): " -n 1 < /dev/tty
 echo
