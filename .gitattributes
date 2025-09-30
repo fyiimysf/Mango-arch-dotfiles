@@ -1,1 +1,9 @@
-*/ linguist-detectable=false
+*.html linguist-detectable=false
+*.ts linguist-detectable=false
+*.jsx linguist-detectable=false
+*.js linguist-detectable=false
+*.tsx linguist-detectable=false
+*.py linguist-detectable=false
+*.kdl linguist-detectable=false
+*.toml linguist-detectable=false
+*.lua linguist-detectable=false
