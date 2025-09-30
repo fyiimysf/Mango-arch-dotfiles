@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 
 # setup.sh
 # Comprehensive setup script for Arch Linux dotfiles, runnable via curl on a fresh system.
@@ -34,7 +34,7 @@ NC='\033[0m' # No Color
 
 echo -e "${GREEN}=== NiriWM Arch Dotfiles by fyiimysf ===${NC}"
 echo "Repo URL: $REPO_URL"
-echo "${RED}This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles.${NC}"
+echo -e "${RED}This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles.${NC}"
 echo "Backup your ~/.config first if needed (script will auto-backup)."
 read -p "Continue? (y/N): " -n 1 < /dev/tty
 echo
