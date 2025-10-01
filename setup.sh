@@ -23,7 +23,7 @@
 set -e  # Exit on error
 
 # Configuration
-REPO_URL="https://github.com/fyiimysf/Niri-arch-dotfiles.git"  # Update with actual repo URL
+REPO_URL="https://github.com/fyiimysf/Niri-arch-dotfiles.git" 
 DOTFILES_DIR="$HOME/dotfiles"
 
 # Colors for output
@@ -67,18 +67,19 @@ fi
 # Ensure we're in the repo dir for later steps
 cd "$DOTFILES_DIR"
 
-# Step 4: Install Paru if not present
-if ! command -v paru &> /dev/null; then
-    echo "Installing Paru AUR helper..."
+# Step 4: Install Yay if not present
+if ! command -v yay &> /dev/null; then
+    echo "Installing YAY AUR helper..."
     cd /tmp
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
+    rm -rf /tmp/yay
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
     makepkg -si --noconfirm
     cd ~
-    rm -rf /tmp/paru
-    echo -e "${GREEN}Paru installed.${NC}"
+    rm -rf /tmp/yay
+    echo -e "${GREEN}YAY installed.${NC}"
 else
-    echo "Paru already installed."
+    echo "Yay already installed."
 fi
 
 # Step 5: Define package lists
@@ -124,7 +125,8 @@ echo "Installing official packages: ${OFFICIAL_PACKAGES[*]}"
 sudo pacman -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 
 echo "Installing AUR packages: ${AUR_PACKAGES[*]}"
-paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+
+yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
 
 echo -e "${GREEN}All packages installed successfully!${NC}"
 
