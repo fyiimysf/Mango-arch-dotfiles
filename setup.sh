@@ -261,12 +261,13 @@ echo -e "${GREEN}Stowing complete!${NC}"
 
 
 # Step 7: Install and setup Ly Display Manager (Optional)
-read -p "Do You want to Install Ly Display Manager ? (y/N)" -n 1 ly
+read -p "Do You want to Install Ly Display Manager ? (y/N)" -n 1 < /dev/tty
 echo
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     echo "Installing Ly..."
     sudo pacman -S ly
+    echo "Enabling Ly"
     systemctl enable --now ly
     echo -e "${GREEN}Ly DM Installed.${NC}"
 else
@@ -288,6 +289,6 @@ echo "3. Reboot or log out/in: Start Hyprland session from your display manager.
 echo "4. Verify: ls -la ~/.config | grep -E '(hypr|waybar|nvim|fish)'"
 echo "5. For updates later: cd ~/dotfiles; git pull; stow -R -v */"
 echo ""
-echo -e "${GREEN}Setup finished! Enjoy your new system.${NC}"
+echo -e "${GREEN}Enjoy your new system.${NC}"
 
 
