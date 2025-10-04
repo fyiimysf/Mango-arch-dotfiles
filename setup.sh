@@ -107,7 +107,7 @@ else
     echo "Yay already installed."
 fi
 
-elif [[ ! $REPLY =~ ^[Bb]$ ]]; then
+else 
 echo "Installing Both Yay & Paru..."
 # Install Both
 if ! command -v paru &> /dev/null; then
@@ -138,51 +138,6 @@ else
     echo "Yay already installed."
 fi
 
-else
-echo "Installing Both Yay & Paru..."
-
-if ! command -v paru &> /dev/null; then
-    echo "Installing Paru..."
-    cd /tmp
-    rm -rf /tmp/paru
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si --noconfirm
-    cd ~
-    rm -rf /tmp/paru
-    echo -e "${GREEN}PARU installed Successfully.${NC}"
-else
-    echo "Paru already installed."
-fi
-
-if ! command -v yay &> /dev/null; then
-    echo "Installing Yay..."
-    cd /tmp
-    rm -rf /tmp/yay
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-    cd ~
-    rm -rf /tmp/yay
-    echo -e "${GREEN}YAY installed Successfully.${NC}"
-else
-    echo "Yay already installed."
-fi
-
-fi
-
-# Step 7: Install and setup Ly Display Manager (Optional)
-
-read -p "Do You want to Install Ly Display Manager ? (y/N)" -n 1 ly
-echo
-
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo "Installing Ly..."
-    sudo pacman -S ly
-    systemctl enable --now ly
-    echo -e "${GREEN}Ly DM Installed.${NC}"
-else
-    echo "Skipping Ly Install..."
 fi
 
 # Step 5: Define package lists
