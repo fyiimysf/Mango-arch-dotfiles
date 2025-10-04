@@ -4,7 +4,7 @@ end
 
 function fish_greeting 
     fastfetch
-    echo Salam Yousaf 👋
+    echo Yo $USER 👋
 end
 
 function fish_prompt
