@@ -4,14 +4,11 @@
 # Comprehensive setup script for Arch Linux dotfiles, runnable via curl on a fresh system.
 # 1. Updates system and installs prerequisites (including git).
 # 2. Clones the dotfiles repo to ~/dotfiles if not already present.
-# 3. Installs Paru (AUR helper) if not present.
+# 3. Installs AUR helper if not present.
 # 4. Installs official pacman packages.
 # 5. Installs AUR packages via Paru.
 # 6. Stows all subdirectories using GNU Stow.
 #
-# To run on a new/fresh Arch Linux system via curl (one-liner):
-# curl -fsSL https://raw.githubusercontent.com/yourusername/dotfiles/main/setup-complete.sh | bash
-# 
 # Assumes: Fresh Arch Linux or derivative (e.g., after archinstall). Internet and sudo access required.
 # WARNINGS:
 # - This is a destructive setup: Backs up ~/.config but overwrites with symlinks.
@@ -194,29 +191,36 @@ OFFICIAL_PACKAGES=(
     "alacritty"     # Terminal
     "gnome-calculator" # Calculator
     "kitty"         # Terminal
-)
-
-# AUR packages (paru)
-AUR_PACKAGES=(
     "avizo"                 # Notifications (AUR)
     "xwayland-satellite"    # XWayland compat
     "tuned"                 # System tuning
     "hyprlock"              # Lock screen
     "hyprpicker"            # Color picker
     "wooz"                  # Screenshot utility (assuming AUR/custom)
+
 )
 
-echo "Installing official packages: ${OFFICIAL_PACKAGES[*]}"
-sudo pacman -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
+# # AUR packages
+# AUR_PACKAGES=(
+#     "avizo"                 # Notifications (AUR)
+#     "xwayland-satellite"    # XWayland compat
+#     "tuned"                 # System tuning
+#     "hyprlock"              # Lock screen
+#     "hyprpicker"            # Color picker
+#     "wooz"                  # Screenshot utility (assuming AUR/custom)
+# )
 
-echo "Installing AUR packages: ${AUR_PACKAGES[*]}"
+echo "Installing All packages: ${OFFICIAL_PACKAGES[*]}"
+# sudo pacman -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
+
+# echo "Installing AUR packages: ${AUR_PACKAGES[*]}"
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-  yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+  yay -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 elif [[ ! $REPLY =~ ^[Pp]$ ]]; then
-  paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+  paru -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 else 
-  paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+  yay -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 fi
 
 echo -e "${GREEN}All packages installed successfully!${NC}"
@@ -235,7 +239,7 @@ done
 echo -e "${GREEN}Stowing complete!${NC}"
 echo ""
 echo "=== Post-Setup Instructions ==="
-echo "1. Change to Fish shell: chsh -s /usr/bin/fish"
+echo "1. Change to Fish shell: chsh -s /usr/bin/fish (if needed)"
 echo "2. Neovim plugins: nvim +Lazy sync (or your plugin manager)."
 echo "3. Reboot or log out/in: Start Hyprland session from your display manager."
 echo "4. Verify: ls -la ~/.config | grep -E '(hypr|waybar|nvim|fish)'"
