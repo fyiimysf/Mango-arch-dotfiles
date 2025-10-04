@@ -67,7 +67,28 @@ fi
 # Ensure we're in the repo dir for later steps
 cd "$DOTFILES_DIR"
 
-# Step 4: Install Yay if not present
+read -p "Select AUR Helper to install (Yay/Paru/both)? (y/p/B): " -n 1 < /dev/tty
+echo
+
+# Step 4: Install AUR helper if not present
+if [[ ! $REPLY =~ ^[Pp]$ ]]; then
+# Install paru
+if ! command -v paru &> /dev/null; then
+    echo "Installing PARU AUR helper..."
+    cd /tmp
+    rm -rf /tmp/paru
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd ~
+    rm -rf /tmp/paru
+    echo -e "${GREEN}PARU installed Successfully.${NC}"
+else
+    echo "Paru already installed."
+fi
+
+elif [[ ! $REPLY =~ ^[Yy]$ ]]; then
+# Install yay
 if ! command -v yay &> /dev/null; then
     echo "Installing YAY AUR helper..."
     cd /tmp
@@ -77,9 +98,73 @@ if ! command -v yay &> /dev/null; then
     makepkg -si --noconfirm
     cd ~
     rm -rf /tmp/yay
-    echo -e "${GREEN}YAY installed.${NC}"
+    echo -e "${GREEN}YAY installed Successfully.${NC}"
 else
     echo "Yay already installed."
+fi
+
+elif [[ ! $REPLY =~ ^[Bb]$ ]]; then
+echo "Installing Both Yay & Paru..."
+# Install Both
+if ! command -v paru &> /dev/null; then
+    echo "Installing Paru..."
+    cd /tmp
+    rm -rf /tmp/paru
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd ~
+    rm -rf /tmp/paru
+    echo -e "${GREEN}PARU installed Successfully.${NC}"
+else
+    echo "Paru already installed."
+fi
+
+if ! command -v yay &> /dev/null; then
+    echo "Installing Yay..."
+    cd /tmp
+    rm -rf /tmp/yay
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd ~
+    rm -rf /tmp/yay
+    echo -e "${GREEN}YAY installed Successfully.${NC}"
+else
+    echo "Yay already installed."
+fi
+
+else
+echo "Installing Both Yay & Paru..."
+
+if ! command -v paru &> /dev/null; then
+    echo "Installing Paru..."
+    cd /tmp
+    rm -rf /tmp/paru
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si --noconfirm
+    cd ~
+    rm -rf /tmp/paru
+    echo -e "${GREEN}PARU installed Successfully.${NC}"
+else
+    echo "Paru already installed."
+fi
+
+if ! command -v yay &> /dev/null; then
+    echo "Installing Yay..."
+    cd /tmp
+    rm -rf /tmp/yay
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd ~
+    rm -rf /tmp/yay
+    echo -e "${GREEN}YAY installed Successfully.${NC}"
+else
+    echo "Yay already installed."
+fi
+
 fi
 
 # Step 5: Define package lists
@@ -126,7 +211,13 @@ sudo pacman -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 
 echo "Installing AUR packages: ${AUR_PACKAGES[*]}"
 
-yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+  yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+elif [[ ! $REPLY =~ ^[Pp]$ ]]; then
+  paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+else 
+  paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+fi
 
 echo -e "${GREEN}All packages installed successfully!${NC}"
 
