@@ -146,6 +146,7 @@ fi
 # Official repos (pacman)
 OFFICIAL_PACKAGES=(
     "git"           # Cloning/updating repo
+	"xorg"          # X11
     "stow"          # Symlink management
     "nvim"          # Neovim editor
     "curl"          # Downloads
@@ -175,6 +176,7 @@ OFFICIAL_PACKAGES=(
     "hyprlock"              # Lock screen
     "hyprpicker"            # Color picker
     "wooz"                  # Screenshot utility (assuming AUR/custom)
+	"mesa" 					# General Display drivers
 
 )
 
