@@ -29,7 +29,14 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}=== NiriWM Arch Dotfiles by fyiimysf ===${NC}"
+echo -e "${GREEN}
+░█▀█░▀█▀░█▀▄░▀█▀░░░█░█░█▄█░░░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
+░█░█░░█░░█▀▄░░█░░░░█▄█░█░█░░░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
+░▀░▀░▀▀▀░▀░▀░▀▀▀░░░▀░▀░▀░▀░░░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+░░░░░░░░░░░█▀▄░█░█░░░█▀▀░█░█░▀█▀░▀█▀░█▄█░█▀▀░█▀▀░░░░░░░░░░░░
+░░░░░░░░░░░█▀▄░░█░░░░█▀▀░░█░░░█░░░█░░█░█░▀▀█░█▀▀░░░░░░░░░░░░
+░░░░░░░░░░░▀▀░░░▀░░░░▀░░░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░░░░░░░░░░░░░░
+${NC}"
 echo "Repo URL: $REPO_URL"
 echo -e "${RED}This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles.${NC}"
 echo "Backup your ~/.config first if needed (script will auto-backup)."
@@ -164,6 +171,20 @@ fi
 
 fi
 
+# Step 7: Install and setup Ly Display Manager (Optional)
+
+read -p "Do You want to Install Ly Display Manager ? (y/N)" -n 1 ly
+echo
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Installing Ly..."
+    sudo pacman -S ly
+    systemctl enable --now ly
+    echo -e "${GREEN}Ly DM Installed.${NC}"
+else
+    echo "Skipping Ly Install..."
+fi
+
 # Step 5: Define package lists
 # Official repos (pacman)
 OFFICIAL_PACKAGES=(
@@ -237,7 +258,29 @@ for dir in */; do
 done
 
 echo -e "${GREEN}Stowing complete!${NC}"
+
+
+# Step 7: Install and setup Ly Display Manager (Optional)
+read -p "Do You want to Install Ly Display Manager ? (y/N)" -n 1 ly
+echo
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Installing Ly..."
+    sudo pacman -S ly
+    systemctl enable --now ly
+    echo -e "${GREEN}Ly DM Installed.${NC}"
+else
+    echo "Skipping Ly Install..."
+fi
+
+
 echo ""
+echo -e "${GREEN}
+               ▄▖  ▗       ▄▖       ▜   ▗   
+               ▚ █▌▜▘▌▌▛▌  ▌ ▛▌▛▛▌▛▌▐ █▌▜▘█▌
+               ▄▌▙▖▐▖▙▌▙▌  ▙▖▙▌▌▌▌▙▌▐▖▙▖▐▖▙▖
+                       ▌          ▌         
+${NC}"
 echo "=== Post-Setup Instructions ==="
 echo "1. Change to Fish shell: chsh -s /usr/bin/fish (if needed)"
 echo "2. Neovim plugins: nvim +Lazy sync (or your plugin manager)."
@@ -246,3 +289,5 @@ echo "4. Verify: ls -la ~/.config | grep -E '(hypr|waybar|nvim|fish)'"
 echo "5. For updates later: cd ~/dotfiles; git pull; stow -R -v */"
 echo ""
 echo -e "${GREEN}Setup finished! Enjoy your new system.${NC}"
+
+
