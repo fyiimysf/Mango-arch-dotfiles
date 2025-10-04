@@ -71,7 +71,7 @@ fi
 # Ensure we're in the repo dir for later steps
 cd "$DOTFILES_DIR"
 
-read -p "Select AUR Helper to install (Yay/Paru/both)? (y/p/B): " -n 1 < /dev/tty
+read -p "Select AUR Helper to install Yay/Paru/BOTH (y/p/ENTER): " -n 1 < /dev/tty
 echo
 
 # Step 4: Install AUR helper if not present
@@ -198,7 +198,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 elif [[ ! $REPLY =~ ^[Pp]$ ]]; then
   paru -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 else 
-  yay -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
+  paru -S --needed --noconfirm "${OFFICIAL_PACKAGES[@]}"
 fi
 
 echo -e "${GREEN}All packages installed successfully!${NC}"
@@ -209,8 +209,10 @@ echo "Stowing all dotfiles from $DOTFILES_DIR..."
 for dir in */; do
     package="${dir%/}"  # Remove trailing slash
     if [[ -d "$package" ]]; then
-        echo "Stowing $package..."
-        stow -v "$package"
+        if [ ! "$package" = "setup.sh" ]&[ ! "$package" = "README.md" ]&[ ! "$package" = ".gitattributes" ]&[ ! "$package" = ".gitignore" ]&[ ! "$package" = "LICENSE" ]&[ ! "$package" = ".git" ]; then
+         echo "Stowing $package..."
+         stow -v "$package"
+	       fi
     fi
 done
 
