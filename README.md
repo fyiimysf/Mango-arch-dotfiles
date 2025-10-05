@@ -1,11 +1,23 @@
 # My NiriWM Dotfiles for Arch Linux
 
-This repository contains modular dotfiles for a [Niri](https://github.com/YaLTeR/niri) Wayland compositor setup on Arch Linux. Niri is a scrollable-tiling window manager with a focus on keyboard-driven workflows and dynamic layouts. Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`.
+This repository contains modular dotfiles for a [Niri](https://github.com/YaLTeR/niri) Wayland compositor setup on Arch Linux. 
+Niri is a scrollable-tiling window manager with a focus on keyboard-driven workflows and dynamic layouts. Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`.
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/254875ee-cb75-408d-99e1-f44ba4819ece" />
 
 ## Quick Setup for New System
 
-Run the complete setup script via curl on a fresh Arch install (e.g., after `archinstall`). It handles system update, cloning this repo, installing Paru (AUR helper), all required packages via pacman/paru, and stowing dotfiles.
+Run the complete setup script via curl on a fresh Arch install (e.g., after `archinstall`).
+
+- **What It Does**:
+  1. Updates system (`sudo pacman -Syu`).
+  2. Installs prerequisites (git, stow, base-devel).
+  3. Clones this repo to `~/dotfiles`.
+  4. Installs AUR helpers if missing.
+  5. Installs packages (see list below).
+  6. Backs up existing `~/.config` (to `~/.config.backup`).
+  7. Stows all configs (e.g., `niri/`, `fish/`, `waybar/`).
+  8. Installs Ly Display Manager (optional)
 
 ### One-Liner Installation (Requires Curl)
 ```bash
@@ -17,14 +29,6 @@ curl -O https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup
 chmod +x setup.sh
 ./setup.sh
 ```
-- **What It Does**:
-  1. Updates system (`sudo pacman -Syu`).
-  2. Installs prerequisites (git, stow, base-devel).
-  3. Clones this repo to `~/dotfiles`.
-  4. Installs Paru if missing.
-  5. Installs packages (see list below).
-  6. Backs up existing `~/.config` (to `~/.config.backup`).
-  7. Stows all configs (e.g., `niri/`, `fish/`, `waybar/`).
 
 ### If the repo is already cloned:
 ```bash
@@ -48,8 +52,8 @@ The script installs the following via pacman (official repos) and paru (AUR). Th
 **Notes**:
 - ~30 packages total; AUR builds may take 5-15 minutes (needs RAM/disk space).
 - If AUR fails (e.g., dependencies), run `paru -Syu` and retry manually.
-- Niri-specific: No additional WM like Hyprland—focus on Niri. Install a display manager if needed: `sudo pacman -S sddm` (then enable: `sudo systemctl enable sddm`).
-
+- Niri-specific: Niri Focused WM setup.
+- Ly DM: Installs and Enables Ly as the Display Manager of choice (optional)
 ## Post-Installation
 
 1. **Change Shell**: `chsh -s /usr/bin/fish` (logs you out).
@@ -75,7 +79,7 @@ stow -R -v */  # Restow changes
 - For package updates: `sudo pacman -Syu; paru -Syu`.
 - Troubleshooting:
   - Stow conflicts: Use dry-run (`stow -n -v <package>`).
-  - Niri Issues: Check `journalctl -b -u sddm` or Niri logs (`niri --log-level debug`).
+  - Niri Issues: Check `journalctl -b -u ly` or Niri logs (`niri --log-level debug`).
   - Permissions: `chown -R $USER:$USER ~/dotfiles`.
 
 ## Directory Structure
