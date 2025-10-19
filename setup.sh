@@ -62,7 +62,7 @@ sudo pacman -S --needed --noconfirm base-devel git stow  # Include stow early fo
 # Step 3: Clone the repo if not already present
 if [[ ! -d "$DOTFILES_DIR" ]]; then
     echo "Cloning dotfiles repo to $DOTFILES_DIR..."
-    git clone "$REPO_URL" "$DOTFILES_DIR"
+    git clone --depth=1 "$REPO_URL" "$DOTFILES_DIR"
     echo -e "${GREEN}Repo cloned successfully.${NC}"
 else
     echo "Dotfiles repo already exists at $DOTFILES_DIR. Skipping clone."
