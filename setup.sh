@@ -166,7 +166,6 @@ OFFICIAL_PACKAGES=(
     "foot"          		# Terminal
     "fish"          		# Shell
 	"mangowc-git"   		# Mango Window Manager
-    "niri"          		# Wayland compositor
     "fastfetch"     		# System info
     "librewolf-bin" 		# Secure Internet Browser
     "swaync"        		# Notifications
@@ -175,6 +174,7 @@ OFFICIAL_PACKAGES=(
     "wezterm"       		# Terminal
     "wlogout"       		# Logout menu
     "fuzzel"        		# Launcher
+	"rofi"					# Launcher + Clipboard
     "cliphist"      		# Clipboard (community)
     "wlsunset"      		# Night light
     "thunar"          		# File manager
@@ -191,6 +191,10 @@ OFFICIAL_PACKAGES=(
     "wooz"                  # Screenshot utility (assuming AUR/custom)
 	"mesa" 					# General Display drivers
 	"waypaper" 				# Wallpaper manager
+	"swww"					# Wallpaper package
+	"xdg-desktop-portal"	# Desktop Manager
+	"xdg-desktop-portal-gtk" # Desktop Manager for Wayland
+	"xdg-desktop-portal-wlr" # Desktop Manager for Wayland
 )
 
 # # AUR packages
@@ -243,8 +247,8 @@ ${NC}"
 echo "=== Post-Setup Instructions ==="
 echo "1. Change to Fish shell: chsh -s /usr/bin/fish (if needed)"
 echo "2. Neovim plugins: nvim +Lazy sync (or your plugin manager)."
-echo "3. Reboot or log out/in: Start Hyprland session from your display manager."
-echo "4. Verify: ls -la ~/.config | grep -E '(hypr|waybar|nvim|fish)'"
+echo "3. Reboot or log out/in: Start Mango session from your display manager."
+echo "4. Verify: ls -la ~/.config | grep -E '(mango|waybar|nvim|fish)'"
 echo "5. For updates later: cd ~/dotfiles; git pull; stow -R -v */"
 echo ""
 echo -e "${GREEN}Enjoy your new system.${NC}"
