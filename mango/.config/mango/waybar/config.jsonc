@@ -1,0 +1,150 @@
+{
+  "modules-left": [
+    "clock",
+    "custom/sep",
+    "dwl/window#layout",
+    "custom/sep",
+    "dwl/window#title"
+  ],
+  "modules-center": [
+    "ext/workspaces",
+  ],
+  "modules-right": [
+    "mpris",
+    "custom/sep",
+    "tray",
+    "custom/sep",
+    "custom/warp",
+    "custom/sep",
+    "battery",
+    "custom/sep",
+    "pulseaudio",
+    //"cpu",
+    //"memory",
+    //"custom/sep",
+    //"disk",
+    "custom/sep",
+    "custom/tuned",
+  ],
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%Y-%m-%d-%A}"
+    
+  },
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "Mem: {used}GiB"
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "Disk: {free}"
+  },
+  "battery": {
+    "states": {
+      "good": 75,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "Bat: {capacity}% {power} {icon}",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "Left {time}% ",
+    "format-time": "{H}:{M}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "custom/warp": {
+        "format": "0.0.0.0",// Format is handled in the script output
+    	"format-alt": "1.1.1.1",      
+        "exec": "bash ~/.config/waybar/get_warp.sh",
+        "on-click": "bash ~/.config/waybar/warp_toggle.sh",
+        "interval": 1, // Update status every 1 seconds (optional)
+        "return-type": "json",
+        "tooltip": true
+   },
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": false,
+    "on-click": "activate",
+    "sort-by-id": true
+  },
+  "dwl/tags": {
+    "num-tags": 5
+  },
+  "dwl/window#layout": {
+    "format": "[{layout}]",
+    
+    "rewrite": {
+		"S": "Scroll",
+		"T": "Tile"
+	}
+  },
+  "dwl/window#title": {
+    "format": "{title}"
+  },
+  "mpris": {
+	"format": "{player_icon} {title}",
+	"format-paused": "{status_icon} <i>{title}</i>",
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"title-len":56,
+	"status-icons": {
+		"paused": "⏸"
+	},
+	"interval" : 1,
+	// "ignored-players": ["firefox"]
+   },
+  "wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 18,
+	"tooltip-format": "{title}",
+	"on-click": "activate",
+	"on-click-middle": "close",
+	"ignore-list": [
+
+	],
+	"app_ids-mapping": {
+		"firefoxdeveloperedition": "firefox-developer-edition"
+	},
+	"rewrite": {
+		"Firefox Web Browser": "Firefox",
+		"Foot": "Terminal"
+	}
+  },
+  "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "0% {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+   },
+  "custom/tuned": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/tuned.sh",
+    "on-click": "~/.config/waybar/tuned.sh --click",
+    "on-click-right": "wlogout",
+    "interval": 1,
+    "signal":1
+  },
+  "custom/sep": {
+    "format": "|",
+    "interval": 0
+  }
+}
