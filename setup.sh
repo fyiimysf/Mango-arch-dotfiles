@@ -20,7 +20,7 @@
 set -e  # Exit on error
 
 # Configuration
-REPO_URL="https://github.com/fyiimysf/Niri-arch-dotfiles.git" 
+REPO_URL="https://github.com/fyiimysf/Mango-arch-dotfiles.git" 
 DOTFILES_DIR="$HOME/dotfiles"
 
 # Colors for output
@@ -29,14 +29,24 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}
-░█▀█░▀█▀░█▀▄░▀█▀░░░█░█░█▄█░░░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
-░█░█░░█░░█▀▄░░█░░░░█▄█░█░█░░░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
-░▀░▀░▀▀▀░▀░▀░▀▀▀░░░▀░▀░▀░▀░░░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
-░░░░░░░░░░░█▀▄░█░█░░░█▀▀░█░█░▀█▀░▀█▀░█▄█░█▀▀░█▀▀░░░░░░░░░░░░
-░░░░░░░░░░░█▀▄░░█░░░░█▀▀░░█░░░█░░░█░░█░█░▀▀█░█▀▀░░░░░░░░░░░░
-░░░░░░░░░░░▀▀░░░▀░░░░▀░░░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░░░░░░░░░░░░░░
+echo -e "${YELLOW}░
+ █▄█░█▀█░█▀█░█▀▀░█▀█░░░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀░░
+░█░█░█▀█░█░█░█░█░█░█░░░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█░░
+░▀░▀░▀░▀░▀░▀░▀▀▀░▀▀▀░░░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░░
+░░░░░░░█▀▄░█░█░░░░░█▀▀░█░█░▀█▀░▀█▀░█▄█░█░█░█▀▀░█▀▀░░░░░░
+░░░░░░░█▀▄░░█░░░░░░█▀▀░░█░░░█░░░█░░█░█░░█░░▀▀█░█▀▀░░░░░░
+░░░░░░░▀▀░░░▀░░░░░░▀░░░░▀░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░░░░░░░░
 ${NC}"
+# echo -e "${GREEN}
+# ░█▀█░▀█▀░█▀▄░▀█▀░░░█░█░█▄█░░░█▀▄░█▀█░▀█▀░█▀▀░▀█▀░█░░░█▀▀░█▀▀
+# ░█░█░░█░░█▀▄░░█░░░░█▄█░█░█░░░█░█░█░█░░█░░█▀▀░░█░░█░░░█▀▀░▀▀█
+# ░▀░▀░▀▀▀░▀░▀░▀▀▀░░░▀░▀░▀░▀░░░▀▀░░▀▀▀░░▀░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+# ░░░░░░░░░░░█▀▄░█░█░░░█▀▀░█░█░▀█▀░▀█▀░█▄█░█▀▀░█▀▀░░░░░░░░░░░░
+# ░░░░░░░░░░░█▀▄░░█░░░░█▀▀░░█░░░█░░░█░░█░█░▀▀█░█▀▀░░░░░░░░░░░░
+# ░░░░░░░░░░░▀▀░░░▀░░░░▀░░░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░░░░░░░░░░░░░░
+# ${NC}"
+
+
 echo "Repo URL: $REPO_URL"
 echo -e "${RED}This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles.${NC}"
 echo "Backup your ~/.config first if needed (script will auto-backup)."
@@ -145,31 +155,34 @@ fi
 # Step 5: Define package lists
 # Official repos (pacman)
 OFFICIAL_PACKAGES=(
-    "git"           # Cloning/updating repo
-	"xorg"          # X11
-    "stow"          # Symlink management
-    "nvim"          # Neovim editor
-    "curl"          # Downloads
-    "brightnessctl" # Brightness control
-    "foot"          # Terminal
-    "fish"          # Shell
-    "niri"          # Wayland compositor
-    "fastfetch"     # System info
-    "firefox"       # Secure Internet Browser
-    "swaync"        # Notifications
-    "swayidle"      # Idle management
-    "waybar"        # Status bar
-    "wezterm"       # Terminal
-    "wlogout"       # Logout menu
-    "fuzzel"        # Launcher
-    "cliphist"      # Clipboard (community)
-    "wlsunset"      # Night light
-    "nemo"          # File manager
-    "gdu"           # Disk usage
-    "yazi"          # Terminal FM
-    "alacritty"     # Terminal
-    "gnome-calculator" # Calculator
-    "kitty"         # Terminal
+    "git"           		# Cloning/updating repo
+	"xorg"          		# X11
+	"wayland"      			# Wayland
+	"wlroots"       		# Wayland Root Files
+    "stow"          		# Symlink management
+    "nvim"          		# Neovim editor
+    "curl"          		# Downloads
+    "brightnessctl" 		# Brightness control
+    "foot"          		# Terminal
+    "fish"          		# Shell
+	"mangowc-git"   		# Mango Window Manager
+    "niri"          		# Wayland compositor
+    "fastfetch"     		# System info
+    "librewolf-bin" 		# Secure Internet Browser
+    "swaync"        		# Notifications
+    "swayidle"      		# Idle management
+    "waybar"        		# Status bar
+    "wezterm"       		# Terminal
+    "wlogout"       		# Logout menu
+    "fuzzel"        		# Launcher
+    "cliphist"      		# Clipboard (community)
+    "wlsunset"      		# Night light
+    "thunar"          		# File manager
+    "gdu"           		# Disk usage
+    "yazi"          		# Terminal FM
+    "alacritty"     		# Terminal
+    "gnome-calculator" 		# Calculator
+    "kitty"         		# Terminal
     "avizo"                 # Notifications (AUR)
     "xwayland-satellite"    # XWayland compat
     "tuned"                 # System tuning
@@ -177,7 +190,7 @@ OFFICIAL_PACKAGES=(
     "hyprpicker"            # Color picker
     "wooz"                  # Screenshot utility (assuming AUR/custom)
 	"mesa" 					# General Display drivers
-
+	"waypaper" 				# Wallpaper manager
 )
 
 # # AUR packages
