@@ -1,7 +1,7 @@
-# My NiriWM Dotfiles for Arch Linux
+# My MangoWM Dotfiles for Arch Linux
 
-This repository contains modular dotfiles for a [Niri](https://github.com/YaLTeR/niri) Wayland compositor setup on Arch Linux. 
-Niri is a scrollable-tiling window manager with a focus on keyboard-driven workflows and dynamic layouts. Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`.
+This repository contains modular dotfiles for a [Mango](https://github.com/DreamMaoMao/mangowc)  Wayland compositor setup on Arch Linux. 
+Mango is a scrollable-tiling window manager based on DWL with a focus on keyboard-driven workflows and dynamic layouts. Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`.
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/254875ee-cb75-408d-99e1-f44ba4819ece" />
 
@@ -19,54 +19,52 @@ Run the complete setup script via curl on a fresh Arch install (e.g., after `arc
   7. Stows all configs (e.g., `niri/`, `fish/`, `waybar/`).
   8. Installs Ly Display Manager (optional)
 
+- **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually:
 ### One-Liner Installation (Requires Curl)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/fyiimysf/Mango-arch-dotfiles/main/setup.sh | bash
 ```
-- **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually:
+*OR*
+### Cloning the repo:
 ```bash
-curl -O https://raw.githubusercontent.com/fyiimysf/Niri-arch-dotfiles/main/setup.sh
+git clone --depth=1 https://github.com/fyiimysf/Mango-arch-dotfiles.git
+cd ~/dotfiles
 chmod +x setup.sh
 ./setup.sh
 ```
 
-### If the repo is already cloned:
-```bash
-cd ~/dotfiles
-./setup.sh
-```
 
 ## Packages Installed
 
-The script installs the following via pacman (official repos) and paru (AUR). These support NiriWM, shells, editing, and Wayland essentials:
+The script installs the following via pacman (official repos) and paru (AUR). These support MangoWM, shells, editing, and Wayland essentials:
 
 ### Official (pacman):
-- Core: `git`, `stow`, `nvim`, `curl`, `brightnessctl`
+- Core: `git`, `stow`, `nvim`, `curl`, `brightnessctl`, `x11`, `wlroots`, `wayland`
 - Shell/Terminal: `fish`, `foot`, `wezterm`, `alacritty`, `kitty`
-- Wayland/UI: `niri` (compositor), `swaync` (notifications), `swayidle` (idle), `waybar` (bar), `wlogout` (logout), `fuzzel` (launcher), `cliphist` (clipboard), `wlsunset` (night light)
-- Utilities: `fastfetch` (info), `nemo` (file manager), `gdu` (disk), `yazi` (terminal FM), `gnome-calculator`, `firefix` (browser)
+- Wayland/UI: `mango` (compositor), `swaync` (notifications), `swayidle` (idle), `waybar` (bar), `wlogout` (logout), `fuzzel` (launcher),  `rofi` (launcher), `cliphist` (clipboard), `wlsunset` (night light)
+- Utilities: `fastfetch` (info), `nemo` (file manager), `gdu` (disk), `yazi` (terminal FM), `gnome-calculator`, `librewolf` (browser)
 
 ### AUR (paru):
-- `avizo` (notifications), `xwayland-satellite` (XWayland compat), `tuned` (tuning), `hyprlock` (locker, optional fallback), `hyprpicker` (picker), `wooz` (screenshots)
+- `avizo` (notifications), `xwayland-satellite` (XWayland compat), `tuned` (tuning), `hyprlock` (locker), `hyprpicker` (picker), `grim` (screenshots), `slurp` (screenshot utility)
 
 **Notes**:
-- ~30 packages total; AUR builds may take 5-15 minutes (needs RAM/disk space).
+- ~35 packages total; AUR builds may take 5-15 minutes (needs RAM/disk space).
 - If AUR fails (e.g., dependencies), run `paru -Syu` and retry manually.
-- Niri-specific: Niri Focused WM setup.
+- Mango-specific: Mango Focused WM setup.
 - Ly DM: Installs and Enables Ly as the Display Manager of choice (optional)
 ## Post-Installation
 
 1. **Change Shell**: `chsh -s /usr/bin/fish` (logs you out).
-2. **Niri Setup**:
-   - Edit `~/.config/niri/config.kdl` for keybinds (e.g., mod=Super, workspaces via numbers).
-   - Enable Niri session in your display manager (e.g., SDDM: select "Niri" at login).
+2. **Mango Setup**:
+   - Edit `~/.config/mango/config.conf` for keybinds (e.g., mod=Super, workspaces via numbers).
+   - Enable Mango session in your display manager (e.g., Ly: select "Mango" at login).
 3. **Neovim**: `nvim +Lazy sync` (assumes Lazy.nvim; adjust for your plugin manager).
 4. **Wayland Tools**:
-   - Start Waybar: Add to Niri config or run `waybar &`.
-   - Clipboard: Add `cliphist watch` to startup (e.g., via Niri spawn).
+   - Start Waybar: Add to Mango config or run `waybar &`.
+   - Clipboard: Add `cliphist watch` to startup (e.g., via Mango exec-once).
    - Notifications: `swaync-client -o` to test.
-   - Screenshots: Bind `wooz` in Niri config.
-5. **Reboot/Log Out**: Start Niri session. Verify: `ls -la ~/.config | grep -E "(niri|waybar|fish|nvim)"`.
+   - Screenshots: Bind `grim` in Mango config.
+5. **Reboot/Log Out**: Start Mango session. Verify: `ls -la ~/.config | grep -E "(mango|waybar|fish|nvim)"`.
 6. **Customization**: Test selectively—unstow with `stow -D <package>` if issues.
 
 ## Updates & Maintenance
@@ -79,7 +77,7 @@ stow -R -v */  # Restow changes
 - For package updates: `sudo pacman -Syu; paru -Syu`.
 - Troubleshooting:
   - Stow conflicts: Use dry-run (`stow -n -v <package>`).
-  - Niri Issues: Check `journalctl -b -u ly` or Niri logs (`niri --log-level debug`).
+  - Mango Issues: Check `journalctl -b -u ly`.
   - Permissions: `chown -R $USER:$USER ~/dotfiles`.
 
 ## Directory Structure
@@ -87,8 +85,8 @@ stow -R -v */  # Restow changes
 ```
 dotfiles/
 ├── README.md                 # This file
-├── setup.sh         # Full setup script (curlable)
-├── niri/                     # Niri config (config.kdl, themes)
+├── setup.sh                  # Full setup script (curlable)
+├── mango/                    # Mango config (config.conf, autostart.sh)
 ├── fish/                     # Fish shell (config.fish)
 ├── nvim/                     # Neovim (init.lua)
 ├── waybar/                   # Waybar (config.json, style.css)
@@ -102,7 +100,7 @@ dotfiles/
 
 ## Contributing
 
-Fork and PR modular changes (e.g., new Niri keybinds). Test on Arch with Niri.
+Fork and PR modular changes (e.g., new Mango keybinds). Test on Arch with Mango.
 
 ## License
 
