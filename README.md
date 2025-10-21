@@ -3,7 +3,11 @@
 This repository contains modular dotfiles for a [Mango](https://github.com/DreamMaoMao/mangowc)  Wayland compositor setup on Arch Linux. 
 Mango is a scrollable-tiling window manager based on DWL with a focus on keyboard-driven workflows and dynamic layouts. Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`.
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/254875ee-cb75-408d-99e1-f44ba4819ece" />
+<!-- <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/254875ee-cb75-408d-99e1-f44ba4819ece" /> -->
+
+
+https://github.com/user-attachments/assets/a932e924-55c9-46e6-8837-7fbf5c501e0e
+
 
 ## Quick Setup for New System
 
