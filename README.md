@@ -5,8 +5,7 @@ Mango is a scrollable-tiling window manager based on DWL with a focus on keyboar
 
 <!-- <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/254875ee-cb75-408d-99e1-f44ba4819ece" /> -->
 
-
-https://github.com/user-attachments/assets/a932e924-55c9-46e6-8837-7fbf5c501e0e
+https://github.com/user-attachments/assets/f7d1ca9a-4fa1-46aa-b81f-ca7849aab6cf
 
 
 ## Quick Setup for New System
