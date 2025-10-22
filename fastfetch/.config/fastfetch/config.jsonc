@@ -11,7 +11,8 @@
     "logo": {
         "source": "arch_small", // search for logos: fastfetch --list-logos or --print-logos
         "padding": {
-	        "top": 1
+	        "top": 1,
+	        "left": 2
 	},
     },
     "display": {
@@ -38,7 +39,7 @@
         },
         {
             "type": "packages",
-            "format": "{} (DNF)",
+            "format": "{} (pacman)",
             "key": "pkgs  ",
             "keyColor": "33",  
         },
