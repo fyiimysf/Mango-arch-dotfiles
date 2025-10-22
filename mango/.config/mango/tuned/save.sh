@@ -1,0 +1,1 @@
+tuned-adm profile powersave & notify-send -i info 'PowerSaver Mode ' 'Power Profile Changed to Power-Saving Mode'

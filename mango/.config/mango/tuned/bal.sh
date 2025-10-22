@@ -1,0 +1,1 @@
+tuned-adm profile balanced & notify-send -i info 'Balanced Mode ' 'Power Profile Changed to Balanced Mode'
