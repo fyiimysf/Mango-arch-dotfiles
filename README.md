@@ -1,7 +1,7 @@
 # My MangoWM Dotfiles for Arch Linux
 
-This repository contains modular dotfiles for a [Mango](https://github.com/DreamMaoMao/mangowc)  Wayland compositor setup on Arch Linux. 
-Mango is a scrollable-tiling window manager based on DWL with a focus on keyboard-driven workflows and dynamic layouts. Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`.
+This repository contains modular dotfiles for [Mango](https://github.com/DreamMaoMao/mangowc)  Wayland compositor on Arch Linux. 
+Mango is a tiling window manager based on DWL with a focus on keyboard-driven workflows and dynamic layouts (_This Setup focuses mainly on ``scrolling layout``_). Configurations are managed using [GNU Stow](https://www.gnu.org/software/stow/) for easy symlinking to `~/.config/`. _**Assumes a fresh install of Arch**_
 
 <!-- <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/254875ee-cb75-408d-99e1-f44ba4819ece" /> -->
 
@@ -12,15 +12,15 @@ https://github.com/user-attachments/assets/f7d1ca9a-4fa1-46aa-b81f-ca7849aab6cf
 
 Run the complete setup script via curl on a fresh Arch install (e.g., after `archinstall`).
 
-- **What It Does**:
-  1. Updates system (`sudo pacman -Syu`).
+- **What It Does** _step-by-step_:
+  1. Updates system `sudo pacman -Syu`.
   2. Installs prerequisites (git, stow, base-devel).
-  3. Clones this repo to `~/dotfiles`.
-  4. Installs AUR helpers if missing.
-  5. Installs packages (see list below).
-  6. Backs up existing `~/.config` (to `~/.config.backup`).
-  7. Stows all configs (e.g., `niri/`, `fish/`, `waybar/`).
-  8. Installs Ly Display Manager (optional)
+  7. Backs up existing `~/.config` (to `~/.config.backup`).
+  3. Clones this repo to `~/Mango-arch-dotfiles`.
+  5. Installs AUR helpers `paru` & `yay` if missing.
+  6. Installs packages (see list below).
+  8. Stows all configs (e.g., `niri/`, `fish/`, `waybar/`).
+  9. Installs Ly Display Manager (optional)
 
 - **Security Note**: Review the script source from the repo before running. It requires sudo, internet, and assumes a minimal Arch base. For safety, download manually:
 ### One-Liner Installation (Requires Curl)
@@ -31,9 +31,18 @@ curl -fsSL https://raw.githubusercontent.com/fyiimysf/Mango-arch-dotfiles/main/s
 ### Cloning the repo:
 ```bash
 git clone --depth=1 https://github.com/fyiimysf/Mango-arch-dotfiles.git
-cd ~/dotfiles
+cd ~/Mango-arch-dotfiles
 chmod +x setup.sh
 ./setup.sh
+```
+### Optional:
+- **Only Stow**: Only to stow to `~/.config`:
+```bash
+cp -r ~/.config ~/.config.backup
+git clone --depth=1 https://github.com/fyiimysf/Mango-arch-dotfiles.git
+cd ~/Mango-arch-dotfiles
+chmod +x stow.sh
+./stow.sh
 ```
 
 
@@ -44,14 +53,14 @@ The script installs the following via pacman (official repos) and paru (AUR). Th
 ### Official (pacman):
 - Core: `git`, `stow`, `nvim`, `curl`, `brightnessctl`, `x11`, `wlroots`, `wayland`
 - Shell/Terminal: `fish`, `foot`, `wezterm`, `alacritty`, `kitty`
-- Wayland/UI: `mango` (compositor), `swaync` (notifications), `swayidle` (idle), `waybar` (bar), `wlogout` (logout), `fuzzel` (launcher),  `rofi` (launcher), `cliphist` (clipboard), `wlsunset` (night light)
+- Wayland/UI: `mango` (compositor), `swaync` (notifications), `swayidle` (idle), `waybar` (bar), `wlogout` (logout), `fuzzel` (launcher),  `rofi` (launcher), `cliphist` (clipboard), `wlsunset` (night light), `waypaper` (wallpaper manager), `swww` (wallpaper package)
 - Utilities: `fastfetch` (info), `nemo` (file manager), `gdu` (disk), `yazi` (terminal FM), `gnome-calculator`, `librewolf` (browser)
 
 ### AUR (paru):
 - `avizo` (notifications), `xwayland-satellite` (XWayland compat), `tuned` (tuning), `hyprlock` (locker), `hyprpicker` (picker), `grim` (screenshots), `slurp` (screenshot utility)
 
 **Notes**:
-- ~35 packages total; AUR builds may take 5-15 minutes (needs RAM/disk space).
+- ~37 packages total; AUR builds may take 5-15 minutes (needs RAM/disk space).
 - If AUR fails (e.g., dependencies), run `paru -Syu` and retry manually.
 - Mango-specific: Mango Focused WM setup.
 - Ly DM: Installs and Enables Ly as the Display Manager of choice (optional)
@@ -72,10 +81,11 @@ The script installs the following via pacman (official repos) and paru (AUR). Th
 
 ## Updates & Maintenance
 
-From `~/dotfiles`:
+From `~/Mango-arch-dotfiles`:
 ```bash
 git pull
-stow -R -v */  # Restow changes
+cd stow
+stow -Rv -t '../../' */  # Restow changes
 ```
 - For package updates: `sudo pacman -Syu; paru -Syu`.
 - Troubleshooting:
