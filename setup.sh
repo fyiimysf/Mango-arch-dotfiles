@@ -323,7 +323,7 @@ for dir in */; do
     if [[ -d "$package" ]]; then
         #if [ ! "$package" = "setup.sh" ]&[ ! "$package" = "README.md" ]&[ ! "$package" = ".gitattributes" ]&[ ! "$package" = ".gitignore" ]&[ ! "$package" = "LICENSE" ]&[ ! "$package" = ".git" ]; then
          echo "Stowing $package..."
-         stow -Rv -t '../../' "$package"
+         stow  -Rv -t '../../' --adopt "$package"
 	#fi
     fi
 done
