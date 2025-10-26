@@ -332,7 +332,6 @@ git restore .
 
 echo -e "${GREEN}Stowing complete!${NC}"
 
-waypaper --wallpaper '~/Pictures/wallpaper/city.gif'
 echo ""
 echo -e "${GREEN}
                ▄▖  ▗       ▄▖       ▜   ▗   
