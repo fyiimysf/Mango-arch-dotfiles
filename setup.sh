@@ -327,8 +327,8 @@ for dir in */; do
 	#fi
     fi
 done
-cd ..
 git restore .
+cd ..
 
 echo -e "${GREEN}Stowing complete!${NC}"
 
@@ -354,8 +354,8 @@ echo -e "${GREEN}Enjoy your new system.${NC}"
 
 
 # Step 7: Install and setup Ly Display Manager (Optional)
-read -p "Do You want to Install Ly Display Manager ? (y/N)" -n1 ly
-echo
+read -p "Do You want to Install Ly Display Manager ? (y/N)" -n1 ly < /dev/tty
+echo < /dev/tty
 
 case "$ly" in
     "Y"|"y")
