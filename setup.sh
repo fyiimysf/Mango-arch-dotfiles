@@ -53,7 +53,7 @@ ${NC}"
 echo "Repo URL: $REPO_URL"
 echo -e "${RED}This will update system, clone repo, install packages (pacman + AUR via Paru), and stow dotfiles.${NC}"
 echo "Backing up your ~/.config."
-read -p "Continue? (Y/n): " -n1 bak
+read -p "Continue? (Y/n): " -n1 bak < /dev/tty
 echo < /dev/tty
 
 # Step 1: Backup existing config if present (before any installs)
@@ -138,7 +138,7 @@ yay_install(){
     fi
 }
 
-read -p "Select AUR Helper to install Yay/Paru/BOTH (y/p/B): " -n 1 aur
+read -p "Select AUR Helper to install Yay/Paru/BOTH (y/p/B): " -n 1 aur < /dev/tty
 echo < /dev/tty
 
 # # Step 4: Install AUR helper if not present
