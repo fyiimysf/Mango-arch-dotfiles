@@ -328,6 +328,7 @@ for dir in */; do
     fi
 done
 cd ..
+git restore .
 
 echo -e "${GREEN}Stowing complete!${NC}"
 
