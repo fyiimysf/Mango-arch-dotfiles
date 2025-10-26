@@ -317,7 +317,7 @@ echo "..........................................................................
 echo ""
 echo "Stowing all dotfiles from $DOTFILES_DIR..."
 
-	cd stow
+cd ~/Mango-arch-dotfiles/stow
 for dir in */; do
     package="${dir%/}"  # Remove trailing slash
     if [[ -d "$package" ]]; then
@@ -327,7 +327,7 @@ for dir in */; do
 	#fi
     fi
 done
-	cd ..
+cd ..
 
 echo -e "${GREEN}Stowing complete!${NC}"
 
