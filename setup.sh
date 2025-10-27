@@ -241,7 +241,6 @@ OFFICIAL_PACKAGES=(
     "fish"          		# Shell
 	"mangowc-git"   		# Mango Window Manager
     "fastfetch"     		# System info
-    "librewolf-bin" 		# Secure Internet Browser
     "swaync"        		# Notifications
     "swayidle"      		# Idle management
     "waybar"        		# Status bar
@@ -270,6 +269,12 @@ OFFICIAL_PACKAGES=(
 	"xdg-desktop-portal-gtk" # Desktop Manager for Wayland
 	"xdg-desktop-portal-wlr" # Desktop Manager for Wayland
     "nwg-look"              # GTK Theme Manager
+	"mousepad"				# Text Editor
+	"blueman"   			# Bluetooth Manager
+	"networkmanager"        # WiFi Manager
+	"network-manager-applet" # WiFi Applet for waybar
+    "librewolf-bin" 		# Secure Internet Browser
+	"ungoogled-chromium-bin" # Ungoogled Chrome Browser
 )
 
 # # AUR packages
@@ -346,6 +351,7 @@ echo "3. Reboot or log out/in: Start Mango session from your display manager."
 echo "4. Verify: ls -la ~/.config | grep -E '(mango|waybar|nvim|fish)'"
 echo "5. For updates later: cd ~/dotfiles; git pull; stow -R -v */"
 echo "6. Change Wallpaper: Press Super+Alt+W to open Waypaper."
+echo "7. "
 
 echo ""
 echo -e "${GREEN}Enjoy your new system.${NC}"
