@@ -244,7 +244,7 @@ OFFICIAL_PACKAGES=(
     "swaync"        		# Notifications
     "swayidle"      		# Idle management
     "waybar"        		# Status bar
-    "wezterm"       		# Terminal
+    "ghostty"       		# Terminal
     "wlogout"       		# Logout menu
     "fuzzel"        		# Launcher
 	"rofi"					# Launcher + Clipboard
@@ -275,6 +275,8 @@ OFFICIAL_PACKAGES=(
 	"network-manager-applet" # WiFi Applet for waybar
     "librewolf-bin" 		# Secure Internet Browser
 	"ungoogled-chromium-bin" # Ungoogled Chrome Browser
+	"flatpak"				# Flatpak
+	"cosmic-store"			# Cosmic Store for Flatpak
 )
 
 # # AUR packages
@@ -335,7 +337,14 @@ done
 git restore .
 cd ..
 
+
 echo -e "${GREEN}Stowing complete!${NC}"
+
+echo "..........................................................................................."
+
+
+# Enable Power profile on start
+systemctl enable --now tuned
 
 echo ""
 echo -e "${GREEN}
@@ -351,7 +360,8 @@ echo "3. Reboot or log out/in: Start Mango session from your display manager."
 echo "4. Verify: ls -la ~/.config | grep -E '(mango|waybar|nvim|fish)'"
 echo "5. For updates later: cd ~/dotfiles; git pull; stow -R -v */"
 echo "6. Change Wallpaper: Press Super+Alt+W to open Waypaper."
-echo "7. "
+echo "7. Download Flathub Apps using Cosmic Store (if needed)"
+echo "8. Linux Theme Store is a good place to install Dark themes"
 
 echo ""
 echo -e "${GREEN}Enjoy your new system.${NC}"
