@@ -367,8 +367,8 @@ case "$ly" in
     "Y"|"y")
         echo "Installing Ly Display Manager..."
         sudo pacman -S --noconfirm ly
-        sudo systemctl enable --now ly.service
         echo -e "${GREEN}Ly Display Manager installed and enabled successfully.${NC}"
+        sudo systemctl enable --now ly.service
     ;;
     *)
         echo "Skipping Ly Display Manager installation."
