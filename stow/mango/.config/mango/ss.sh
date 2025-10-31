@@ -1,0 +1,1 @@
+grim -l 0 | wl-copy && notify-send -i "/usr/share/icons/Pop/64x64/devices/camera-photo.svg" -t 1500 -u low "Screenshoted 📸" "Screenshot Saved"

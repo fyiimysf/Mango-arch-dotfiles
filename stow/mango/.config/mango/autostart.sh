@@ -25,7 +25,9 @@ waybar -c .config/mango/waybar/config.jsonc -s .config/mango/waybar/style.css & 
 wl-clip-persist --clipboard regular --reconnect-tries 0 &
 
 # clipboard content manager
-wl-paste --watch cliphist store & 
+wl-paste --watch cliphist store &
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
 
 # xwayland dpi scale
 echo "Xft.dpi: 140" | xrdb -merge #dpi缩放
