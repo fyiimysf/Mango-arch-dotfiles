@@ -41,3 +41,7 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
