@@ -245,7 +245,7 @@ OFFICIAL_PACKAGES=(
     "swayidle"      		# Idle management
     "waybar"        		# Status bar
     "ghostty"       		# Terminal
-    "wlogout"       		# Logout menu
+    "wleave"       		# Logout menu
     "fuzzel"        		# Launcher
 	"rofi"					# Launcher + Clipboard
     "cliphist"      		# Clipboard (community)
