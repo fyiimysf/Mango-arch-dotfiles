@@ -3,8 +3,8 @@
  */
 
 @define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg #2E344000;
-@define-color noti-bg-alt #383E4A01;
+@define-color noti-bg #2E3440;
+@define-color noti-bg-alt #383E4A;
 @define-color noti-fg #E5E9F0;
 @define-color noti-bg-hover #81A1C1;
 @define-color noti-bg-focus #A3BE8C;
@@ -14,7 +14,7 @@
 
 @define-color bg-selected rgb(0, 128, 255);
 
-* {
+*{
     color: @noti-fg;
 }
 
@@ -30,10 +30,8 @@
 .notification {
     border-radius: 12px;
     margin: 6px 12px;
-    box-shadow:
-        0 0 0 1px rgba(0, 0, 0, 0.3),
-        0 1px 3px 1px rgba(0, 0, 0, 0.7),
-        0 2px 6px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+    0 2px 6px 2px rgba(0, 0, 0, 0.3);
     padding: 0;
 }
 
@@ -54,6 +52,7 @@
     padding: 2px;
     border-radius: 12px;
 }
+
 
 .notification-content {
     background: transparent;
@@ -124,8 +123,7 @@
     border-right: 1px solid @noti-border-color;
 }
 
-.image {
-}
+.image {}
 
 .body-image {
     margin-top: 6px;
@@ -189,7 +187,7 @@
     font-size: 1.5rem;
 }
 
-.widget-title > button {
+.widget-title>button {
     font-size: initial;
     color: white;
     text-shadow: none;
@@ -199,7 +197,7 @@
     border-radius: 12px;
 }
 
-.widget-title > button:hover {
+.widget-title>button:hover {
     background: @noti-bg-hover;
 }
 
@@ -209,7 +207,7 @@
     font-size: 1.1rem;
 }
 
-.widget-dnd > switch {
+.widget-dnd>switch {
     font-size: initial;
     border-radius: 12px;
     background: @noti-bg;
@@ -217,11 +215,11 @@
     box-shadow: none;
 }
 
-.widget-dnd > switch:checked {
+.widget-dnd>switch:checked {
     background: @bg-selected;
 }
 
-.widget-dnd > switch slider {
+.widget-dnd>switch slider {
     background: @noti-bg-hover;
     border-radius: 12px;
 }
@@ -231,7 +229,7 @@
     margin: 8px;
 }
 
-.widget-label > label {
+.widget-label>label {
     font-size: 1.1rem;
 }
 
@@ -278,83 +276,61 @@
     border-radius: 0;
 }
 
-.power-buttons {
+.power-buttons{
     background-color: @noti-bg;
     padding: 8px;
     margin: 8px;
     border-radius: 12px;
 }
 
-.power-buttons > button {
+
+.power-buttons>button {
     background: transparent;
     border: none;
 }
 
-.power-buttons > button:hover {
+.power-buttons>button:hover {
     background: @noti-bg-hover;
 }
 
-.widget-menubar > box > .menu-button-bar > button {
+.widget-menubar>box>.menu-button-bar>button{
     border: none;
     background: transparent;
 }
 
-.topbar-buttons > button {
+.topbar-buttons>button{
     border: none;
     background: transparent;
 }
 
-.widget-buttons-grid {
+.widget-buttons-grid{
     padding: 8px;
     margin: 8px;
     border-radius: 12px;
     background-color: @noti-bg;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button {
+.widget-buttons-grid>flowbox>flowboxchild>button{
     background: @noti-bg;
     border-radius: 12px;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
     background: @noti-bg-hover;
 }
 
-.powermode-buttons {
+.powermode-buttons{
     background-color: @noti-bg;
     padding: 8px;
     margin: 8px;
     border-radius: 12px;
 }
 
-.powermode-buttons > button {
+.powermode-buttons>button {
     background: transparent;
     border: none;
 }
 
-.powermode-buttons > button:hover {
+.powermode-buttons>button:hover {
     background: @noti-bg-hover;
-}
-
-/* DND widget */
-.widget-dnd {
-    margin: 8px;
-    font-size: 1.1rem;
-}
-
-.widget-dnd > switch {
-    font-size: initial;
-    border-radius: 12px;
-    background: @noti-bg;
-    border: 1px solid @noti-border-color;
-    box-shadow: none;
-}
-
-.widget-dnd > switch:checked {
-    background: @bg-selected;
-}
-
-.widget-dnd > switch slider {
-    background: @noti-bg-hover;
-    border-radius: 12px;
 }
